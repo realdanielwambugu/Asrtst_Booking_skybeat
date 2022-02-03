@@ -1,0 +1,47 @@
+<div id="dashboard"></div>
+<main class="w-full h-screen bgColor-3-100 fx fx-j-e ff-pri">
+  <div id="header"></div>
+
+  <div class="w-10/12 h-auto  bgColor-trans  ml-20 mr-5 mt-16">
+    <div class="w-full h-auto bgColor-trans rounded">
+        <div class="fx fx-i-c fx-j-c w-full bgColor-sec  rounded">
+          <div id="adminWelcome"  class="ml-5 color-pri">
+
+           <!-- load adminWelcome -->
+
+          </div>
+          <div class="h-48 w-48 ml-5">
+            <img class="w-full h-full contain"src="./assets/images/svg/hello2.svg" alt="welcome">
+          </div>
+         </div>
+    <div class="w-full h-auto bgColor- mt-5 color-3-700 fw-black py-5 px-3 ">
+     <div class="fx fx-i-c mb-4 fa-lg">
+       <i class="fal fa-question-circle mr-2 mt-1"></i><h4> Overview.</h4>
+     </div>
+     <div id="overView" class="fx w-full bgColor- ">
+
+          <!-- load overView -->
+
+     </div>
+
+    </div>
+
+  </div>
+</div>
+</main>
+
+<span class="hide" id="check" class="color-danger fs-sm" ></span>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  route.set(`UserController/index/check = 1/check`);
+
+  route.set(`UserController/show/for = admin/adminWelcome`);
+
+  route.set(`BookingController/overView/check = 1/overView`);
+
+  $('#dashboard').load('templates/admin/manage/dashboard.html');
+  $('#header').load('templates/admin/manage/header.html');
+});
+</script>

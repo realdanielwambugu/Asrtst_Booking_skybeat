@@ -1,0 +1,128 @@
+<div id="header">
+
+ </div>
+<main class="w-full h-auto bgColor-sec pt-16 ff-pri fx ">
+<div id="artist_details" class="w-7/12 fx fx-j-c">
+
+</div>
+
+  <div   class="w-1/3 h-full bgColor-sec  pt-5 ml-10">
+    <h4 class="w-10/12 txt-h-c color-pri">Book Now</h4>
+     <form id = "booking_form" class="w-10/12 h-auto bgColor-sec m-0-auto " action="index.html" method="post">
+
+        <input class="hide" id="artistId" type="text" name="artist_id" value="">
+
+        <div id="dates" class="">
+          <h5 class="pb-2">Date:</h5>
+          <input class="hide" name="book_date" type="text" id="Date"placeholder="Please select Date Time" data-input>
+         <div id="error" class="mt-5 color-danger"></div>
+          <button id="getTime" class="w-10/12 bgColor-pri color-sec xs:shadow fs-lg mt-2 mt-4 py-3 px-3 border-0 rounded
+          fw-bold ff-pri pointer outline-0" type="button" name="join">Continue</button>
+        </div>
+
+          <div id="time" class="hide">
+           <h5 class="py-5">From:</h5>
+           <input class="hide" name="from_time" type="text" id="startTime"placeholder="Please select Date Time" data-input>
+            <h5 class="py-5">To:</h5>
+            <input class="hide" name="to_time" type="text" id="endTime"placeholder="Time" data-input>
+            <button id="getSummary" class="w-10/12 bgColor-pri color-sec xs:shadow fs-lg mt-2 mt-4 py-3 px-3 border-0 rounded
+             fw-bold ff-pri pointer outline-0" type="button"
+             onclick="route.set(`BookingController/summary/booking_form/get_summary`)">Continue</button>
+             <button id="getdate" class="w-10/12 bgColor-sec color-pri-700 xs:shadow fs-lg mt-2 mt-4 py-3 px-3 border-0 rounded
+             fw-bold ff-pri pointer outline-0" type="button">Go back</button>
+          </div>
+
+          <div id="summary" class="mt-5 hide">
+            <h4 class="color-pri-700"> Booking summary.</h4>
+              <div id="get_summary">
+                  <!-- load summary -->
+              </div>
+            <input class="w-8/12 mt-4 py-3 px-3 color-2-800 holder:color-3-600 fw-bold
+             b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri
+            "type="text"name="mpesa_code" placeholder="Enter Payment code">
+
+             <span id="book_response"></span>
+
+            <button onclick="route.set('book' )"
+            id="confirm" class="w-8/12 bgColor-pri color-sec xs:shadow fs-lg mt-2 mt-4 py-2 px-3 border-0 rounded
+           fw-bold ff-pri pointer outline-0" type="button" name="join">Confirm</button>
+
+           <button id="getTimeFromSummary" class="w-8/12 bgColor-sec color-pri-700 xs:shadow fs-lg mt-2 mt-4 py-3 px-3 border-0 rounded
+           fw-bold ff-pri pointer outline-0" type="button" name="join">Go back</button>
+          </div>
+
+     </form>
+  </div>
+
+</main>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#header').load('templates/customer/booking/header.html');
+
+  setTimeout(function()
+  {
+      $('#artistId').val($('#artist_id').val());
+  }, 500);
+});
+
+$("#getDate").click(function()
+{
+  if (!$("#Date").val() && !$("#Date1").val())
+  {
+    $("#error").html("Booking date is required")
+  }
+  else
+  {
+    $("#dates").hide('slow');
+    $("#time").show('slow');
+  }
+});
+
+$("#getTimeFromSummary").click(function(){
+
+    $("#summary").hide('slow');
+    $("#time").show('slow');
+
+  });
+
+$("#getdate").click(function(){
+  $("#time").hide('slow');
+  $("#dates").show('slow');
+});
+
+$("#getSummary").click(function(){
+  $("#time").hide('slow');
+  $("#summary").show('slow');
+});
+
+var date = new Date();
+var now = date.getTime();
+
+$("#Date").flatpickr({
+    enableTime: false,
+    // dateFormat: "F, d Y H:i",
+    inline: true,
+    minDate: "today"
+});
+
+$("#startTime").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    inline: true,
+    defaultDate: now,
+    time_24hr: true,
+    minTime: "00:00",
+    maxTime: "23:59",
+});
+
+$("#endTime").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    inline: true,
+    defaultDate: now  + (60 * 60 * 1000),
+    time_24hr: true,
+    minTime: "00:00",
+    maxTime: "23:59",
+});
+</script>

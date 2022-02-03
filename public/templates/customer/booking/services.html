@@ -1,0 +1,34 @@
+
+<div id="header"></div>
+  <main class="pt-16 fx">
+      <nav class="w-1/6 h-auto">
+        <div class="w-1/6 h-screen bgColor-sec xs:shadow fixed flow-auto txt-h-c ff-pri">
+          <h4 class="fw-black mt-5 color-2-800">
+           <i class="fa fa-list-alt"></i> Artist Categories
+          </h4>
+          <div id="categories" class="fw-bold mt-5 color-3-600 flow-auto pb-20">
+               <!-- load categories -->
+          </div>
+        </div>
+      </nav>
+       <div id="all_artists" class="w-10/12 h-auto bgColor-sec ml-3 mt-3 mr-2 fx fx-wrap m-0-auto ff-pri">
+                 <!-- load artists -->
+       </div>
+
+       <div id="load_artists" class="w-8\12 color-pri txt-h-c mt-10"></div>
+
+       <div id="single_service">
+
+       </div>
+     </main>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#header').load('templates/customer/booking/header.html');
+
+  route.set(`CategoryController/index/display = true/categories`);
+
+  route.set('getArtist+ for= client');
+
+});
+</script>

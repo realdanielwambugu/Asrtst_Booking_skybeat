@@ -1,0 +1,33 @@
+<header class="w-full h-16 bgColor-sec xs:shadow fx fx-j-a fx-i-c ff-pri fixed z-10">
+ <div class="w-2/12 h-auto pl-10 bgColor-sec color-pri fw-black fs-xl ">
+
+   <h2><span class="color-2-600">Sky</span>Beat</h2>
+
+ </div>
+ <div class="w-5/12 h-auto bgColor-sec">
+   <i class="fal fa-search color-2-800 absolute mt-3 ml-3"></i>
+   <form method="post">
+     <input class="w-full bgColor-2-100 py-3 px-8 color-2-800 holder:color-2-600 fw-bold
+      b-solid border b-color-2-100 rounded outline-0 focus:bgColor-sec"
+     type="text" name="search" placeholder="Search artist"
+     onkeyup="route.set(`ArtistController/show/search = ${search.value}/result`)">
+   </form>
+
+   <div id="result" class="w-5/12 h-auto bgColor-sec px-4 absolute shadow">
+
+
+   </div>
+
+ </div>
+ <div id="user_info" class="w-3/12 h-auto bgColor-sec fx fx-i-c fx-j-btw">
+   <!-- load user info -->
+  </div>
+</header>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      route.set(`UserController/show/for = customer, temp = header/user_info`);
+
+    })
+</script>

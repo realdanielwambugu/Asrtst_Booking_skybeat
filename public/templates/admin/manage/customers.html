@@ -1,0 +1,44 @@
+<div id="dashboard"></div>
+<main class="w-full h-screen bgColor-3-100 fx fx-j-e ff-pri">
+  <div id="header"></div>
+
+  <div class="w-10/12 h-auto  bgColor-   ml-20 mr-5 mt-16 ff-pri">
+    <h3 class="pb-5 px-5 color-3-700">
+      <i class="fal fa-users"></i>
+      Manage Customers.</h3>
+    <table class="table-auto border-collapse bgColor-trans">
+
+      <thead>
+        <tr class=" bgColor-sec ">
+          <th class="px-4 py-2 color-2-700">  </th>
+          <th class="px-4 py-2 color-2-700">Full Name</th>
+          <th class="px-4 py-2 color-2-700">Email</th>
+          <th class="px-4 py-2 color-2-700">Phone</th>
+          <th class="px-4 py-2 color-2-700">Register Date</th>
+          <th class="px-4 py-2 color-2-700">Status<th/>
+          <th class="px-4 py-2 color-2-700"><th/>
+        </tr>
+      </thead>
+      <tbody class="txt-h-c" id="all_users">
+         <!-- get Customers from database -->
+      </tbody>
+
+        <span class="hide" id="check" class="color-danger fs-sm" ></span>
+        
+    </table>
+     <div id="load_customers" class="w-8\12 color-pri txt-h-c mt-10"></div>
+</div>
+</main>
+
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+  route.set(`UserController/index/check = 1/check`);
+  route.set('getCustomers');
+
+
+  $('#dashboard').load('templates/admin/manage/dashboard.html');
+  $('#header').load('templates/admin/manage/header.html');
+});
+</script>

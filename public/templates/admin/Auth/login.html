@@ -1,0 +1,30 @@
+ <div class="w-5/12 h-auto bgColor-pri ff-pri fx fx-j-c m-0-auto  mt-16 rounded">
+   <form id="login_form" class="w-full h-auto bgColor-sec pb-10 rounded" method="post">
+     <div class="w-3/5 h-auto bgColor-sec m-0-auto mt-4 txt-h-c">
+       <div class="color-pri fw-black mb-5 fs-xl">
+         <span class="color-2-600">Sky</span>Beat
+       </div>
+       <h4 class="color-2-800 mb-5">Admin Authentication.</h4>
+       <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+       shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri"
+       type="text" name="email" placeholder="Email">
+
+       <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+        shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri"
+        type="password" name="password" placeholder="Password">
+
+        <span id="response" class="color-danger fs-sm" ></span>
+
+         <button id="login_btn" class="w-full bgColor-pri color-sec fs-lg mt-2 mb-4 py-3 px-3 border-0 rounded
+         fw-bold ff-pri pointer outline-0" type="button" onclick="route.set('auth')">Login</button>
+     </div>
+   </form>
+ </div>
+
+
+ <span class="hide" id="check" class="color-danger fs-sm" ></span>
+ <script type="text/javascript">
+ $(document).ready(function() {
+   route.set(`Auth\\LoginController/verify`);
+ });
+ </script>

@@ -1,0 +1,27 @@
+<div id="header">
+
+ </div>
+
+<main id="customserAccount" class="w-full h-screen bgColor-3-100 pt-16 ff-pri fx">
+    <!-- load -->
+</main>
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+   $('#header').load('templates/customer/booking/header.html');
+
+   route.set(`UserController/show/for = customer, temp = account/customserAccount`);
+
+ });
+
+ $("#customserAccount").on('click', '#getChangePassword', function () {
+     $("#UpdateAccount").hide("slow");
+     $("#ChangePasword").show("slow");
+ })
+
+  $("#customserAccount").on('click', '#getUpdateAccount', function () {
+      $("#ChangePasword").hide("slow");
+      $("#UpdateAccount").show("slow");
+  })
+
+ </script>

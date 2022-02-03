@@ -1,0 +1,175 @@
+<div id="dashboard"></div>
+<main class="w-full h-screen bgColor-3-100 fx fx-j-e ff-pri">
+  <div id="header"></div>
+
+  <div class="w-10/12 h-auto  bgColor-trans   ml-20 mr-5 mt-16 ff-pri">
+    <div id="Artist_List" class="">
+      <div class="w-10/12 h-auto bgColor-trans fx fx-j-btw">
+        <h3 class="pb-5 px-5 color-3-700">
+          <i class="fal fa-music"></i>
+          Manage Artists.
+        </h3>
+        <button id="get_Add_artist_form" class="w-auto bgColor-pri color-sec fs-xs
+        fw-normal  h-8 px-4 border-0 rounded fw-bold ff-pri pointer outline-0" type="submit" name="join">
+          <i class="fa fa-plus"></i>
+          New artist
+        </button>
+      </div>
+      <table class="table-auto border-collapse bgColor-trans">
+
+        <thead>
+          <tr class=" bgColor-sec ">
+            <th class="px-4 py-2 color-2-700"></th>
+            <th class="px-4 py-2 color-2-700">Artist Name</th>
+            <th class="px-4 py-2 color-2-700">Country</th>
+            <th class="px-4 py-2 color-2-700">Date of Birth</th>
+            <th class="px-4 py-2 color-2-700">Cost Per Hour
+              <th />
+          </tr>
+        </thead>
+
+        <tbody class="txt-h-c" id="all_artists">
+            <!-- get artist from database -->
+        </tbody>
+
+      </table>
+
+      <div id="load_artists" class="w-8\12 color-pri txt-h-c mt-10"></div>
+
+    </div>
+
+    <form id="createArtistForm" class="hide" action="index.html" method="post">
+      <div class="w-10/12 h-auto bgColor-trans fx fx-j-btw">
+        <h3 class="pb-5 px-5 color-3-700">
+          <i class="fa fa-plus"></i>
+          New Artist.
+        </h3>
+        <button id="get_artist_list" class="w-auto bgColor-pri color-sec fs-xs fw-normal
+        h-8 px-4 border-0 rounded fw-bold ff-pri pointer outline-0" type="button" name="join"
+        onclick="route.set('getArtist')">
+        <i class="fa fa-arrow-left"></i>
+          Go Back
+        </button>
+      </div>
+
+      <div class="fx ">
+        <div class="w-2/5 bgColor-trans">
+
+          <div id="artist_photo" class="rounded-full bgColor-pri h-20 w-20 m-0-auto mb-5 shadow b-solid border-2 b-color-sec-200">
+            <label for="userPhoto_upload">
+              <i class="fa fa-camera fa-2x absolute m-5 color-pri"></i>
+              <img class="w-full h-full rounded-full cover" src="./assets/images/user/default.jpg" alt="">
+            </label>
+            <input type="file" id="userPhoto_upload" name="photo" multiple style="display:none;"
+             onchange="$('#artist_photo img').attr('src', window.URL.createObjectURL(this.files[0]))"/>
+          </div>
+
+          <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+           shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+           type="text" name="name" placeholder="Artist Name">
+
+         <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+          shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+          type="text" name="cost_per_hr" placeholder="Cost per Hour">
+
+          <select id="categories" class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+           shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+           type="text" name="category_id">
+             <!-- categories from database -->
+          </select>
+
+          <input id="born" class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+          shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+          type="text" name="birth_day" placeholder="Date of birth" data-input="data-input">
+
+          <select id="country" name="country" class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+          shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri" type="text"></select>
+
+          <textarea name="biography" rows="5" placeholder="Artist Biography." class="w-full mb-4 py-3 px-3
+          color-2-800 holder:color-2-600 fw-bold shadow b-solid border-2 b-color-sec-200 rounded outline-0
+          focus:b-color-pri"></textarea>
+        </div>
+
+        <div class="w-2/5 bgColor-trans ml-10">
+          <h4 class="color-3-600  px-4">Top two songs</h4>
+
+          <h3 class="color-3-600 fs-sm py-2 px-4">Song 1</h3>
+
+          <input class="w-full mb-4 py-2 px-3 color-2-800 holder:color-2-600 fw-bold
+          shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+          type="text" name="song1Title" placeholder="Song title">
+
+          <input class="w-full mb-4 py-2 px-3 color-2-800 holder:color-2-600 fw-bold
+           shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+           type="text" name="song1Album" placeholder="Album">
+
+          <input class="w-full mb-4 py-2 px-3 color-2-800 holder:color-2-600 fw-bold
+           shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+           type="text" name="song1RealeseYear" placeholder="Year released">
+
+          <h3 class="color-3-600 fs-sm py-2 px-4">Song 2</h3>
+
+          <input class="w-full mb-4 py-2 px-3 color-2-800 holder:color-2-600 fw-bold
+           shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+           type="text" name="song2Title" placeholder="Song title">
+
+          <input class="w-full mb-4 py-2 px-3 color-2-800 holder:color-2-600 fw-bold
+           shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+           type="text" name="song2Album" placeholder="Album">
+
+          <input class="w-full mb-4 py-2 px-3 color-2-800 holder:color-2-600 fw-bold
+          shadow b-solid border-2 b-color-sec-200 rounded outline-0 focus:b-color-pri"
+          type="text" name="song2RealeseYear" placeholder="Year released">
+
+          <span id="createArtist_response" class="color-danger fs-sm" ></span>
+
+          <div class="w-1/2 m-0-auto">
+            <button id="createArtist_btn" class="w-full bgColor-sec color-pri fs-md mt-2 mb-4 py-3 px-3 border-0 rounded
+             fw-bold ff-pri pointer outline-0 shadow" type="button" onclick="route.set('createArtist');">
+              <i class="fa fa-save px-2"></i>
+              Save Artist
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+</main>
+
+<span class="hide" id="check" class="color-danger fs-sm" ></span>
+
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+     route.set(`UserController/index`);
+
+     route.set('getArtist+for = admin');
+
+     route.set(`CategoryController/index/get/categories`);
+
+     $('#dashboard').load('templates/admin/manage/dashboard.html');
+     $('#header').load('templates/admin/manage/header.html');
+     $('#country').load('templates/admin/manage/country.html');
+
+  });
+
+  $("#get_Add_artist_form").click(function()
+  {
+     $("#Artist_List").hide("slow");
+     $("#createArtistForm").show("slow");
+
+  });
+
+  $("#get_artist_list").click(function()
+  {
+     $("#createArtistForm").hide("slow");
+     $("#Artist_List").show("slow");
+
+  });
+
+  $("#born").flatpickr(
+  {
+    enableTime: false,
+    dateFormat: "F j, Y",
+  });
+</script>

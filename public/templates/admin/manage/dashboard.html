@@ -1,0 +1,64 @@
+<div class="w-48 h-screen fixed bgColor-sec shadow txt-h-c ff-pri color-3-700">
+<div class=" w-full bgColor-sec color-pri  py-4 mb-3">
+     <h2 class="fa-lg fw-black"><span class="color-3-600">Sky</span>Beat</h2>
+</div>
+
+
+  <div id="navbar" class="m-0-auto w-9/12">
+  <a id="over" href="#templates/admin/manage/Overview" class="no-line color-3-700">
+    <div class="w-full bgColor-sec py-3 px-3 border-0
+    fw-bold ff-pri pointer outline-0  fw-black fx fs-sm">
+    <div class="w-2/6 h-5 bgColor-sec ">
+    <i class="fal fa-question-circle"></i>
+    </div>
+    <div class="w-1/2 h-5 bgColor-sec txt-h-l">Overview</div>
+    </div>
+  </a>
+
+ <a href="#templates/admin/manage/customers" class="no-line color-3-700">
+  <div class="w-full bgColor-sec  py-3 px-3 border-0
+  fw-bold ff-pri pointer outline-0  fw-black fx fs-sm">
+  <div class="w-2/6 h-5 bgColor-sec ">
+  <i class="fal fa-users"></i>
+  </div>
+  <div class="w-1/2 h-5 bgColor-sec txt-h-l">Customers</div>
+  </div>
+ </a>
+
+  <a href="#templates/admin/manage/bookings" class="no-line color-3-700">
+  <div class="w-full bgColor-sec  py-3 px-3 border-0
+  fw-bold ff-pri pointer outline-0  fw-black fx fs-sm">
+  <div class="w-2/6  h-5 bgColor-sec ">
+  <i class="fal fa-ticket"></i>
+  </div>
+  <div class="w-1/2 h-5 bgColor-sec txt-h-l">Bookings</div>
+  </div>
+ </a>
+
+  <a href="#templates/admin/manage/artists" class="no-line color-3-700">
+  <div class="w-full bgColor-sec  py-3 px-3 border-0
+  fw-bold ff-pri pointer outline-0  fw-black fx fs-sm">
+  <div class="w-2/6 h-5 bgColor-sec ">
+  <i class="fal fa-music"></i>
+  </div>
+  <div class="w-1/2 h-5 bgColor-sec txt-h-l">Artists</div>
+  </div>
+  </a>
+
+  <button type="button" onclick="route.set(`auth\\LogOutController/logOut/check = 1/check`);">
+    logout
+  </button>
+</div>
+</div>
+<script type="text/javascript">
+  $("#navbar a").each(function (i, linkElement)
+  {
+    var fragmentId =  location.hash.substr(1)
+    var link = $(linkElement),
+    pageName = link.attr("href").substr(1);
+    if(pageName === fragmentId)
+    {
+      link.attr("class", "no-line active");
+    }
+  });
+</script>

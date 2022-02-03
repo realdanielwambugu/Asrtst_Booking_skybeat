@@ -1,0 +1,68 @@
+<div class="bgColor-1 h-screen">
+   <div class="w-9/12 h-auto fx fx-j-s ff-pri m-0-auto">
+
+     <img class="w-1/3 contain absolute ml-20 mt-8"
+     src="./assets/images/hopdance.png" alt="hop dance">
+
+     <div class="w-8/12 h-auto bgColor-pri fx fx-j-e m-0-auto  mt-16 rounded">
+
+         <form id="join_form" class="w-9/12 h-auto bgColor-sec pb-10 rounded" action="index.html" method="post">
+             <div class="w-3/5 h-auto bgColor-sec m-0-auto mt-4 txt-h-c">
+               <div class="color-pri fw-black mb-5 fs-xl">
+                 <span class="color-2-600">Sky</span>Beat
+               </div>
+              <h4 class="color-2-800 mb-5">Sign up here.</h4>
+
+               <span class="color-danger fs-sm" id="fullName_error"></span>
+
+               <input  class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+               shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri"
+               type="text" name="fullName" placeholder="Full Name"
+               onkeyup="route.set(`UserController/validate/fullName = ${fullName.value}/fullName_error`);">
+
+               <span class="color-danger fs-sm" id="email_error"></span>
+
+               <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+               shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri
+               "type="text" name="email" placeholder="Email"
+                onkeyup="route.set(`UserController/validate/email = ${email.value}/email_error`);">
+
+                <span class="color-danger fs-sm" id="phone_error"></span>
+
+               <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+               shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri
+               "type="number"name="phone" placeholder="Phone Number"
+                onkeyup="route.set(`UserController/validate/phone = ${phone.value}/phone_error`);">
+
+               <span class="color-danger fs-sm" id="password_error"></span>
+
+               <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+               shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri"
+               type="password"name="password" placeholder="Password"
+               onkeyup="route.set(`UserController/validate/password = ${password.value}/password_error`);">
+
+               <span class="color-danger fs-sm" id="confirmPassword_error"></span>
+
+               <input class="w-full mb-4 py-3 px-3 color-2-800 holder:color-2-600 fw-bold
+               shadow b-solid border-2 b-color-pri-200 rounded outline-0 focus:b-color-pri"
+               type="text"name="confirmPassword" placeholder="Confirm Password "
+               onkeyup="route.set(`UserController/validate/confirmPassword = ${confirmPassword.value},password = ${password.value}/confirmPassword_error`);">
+
+               <span id="response" class="color-danger fs-sm" ></span>
+
+               <button id="join_btn" class="w-full bgColor-pri color-sec fs-lg mt-2 mb-4 py-3 px-3 border-0 rounded
+               fw-bold ff-pri pointer outline-0" type="button" onclick="route.set('join')">Create Account</button>
+               <span class="color-2-800">Already have an account?
+                    <a class="no-line color-pri" href="#templates/customer/Auth/login">Login.</a>
+                </span>
+             </div>
+         </form>
+     </div>
+   </div>
+ </div>
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+    route.set(`Auth\\LoginController/verify/`);
+ });
+ </script>
